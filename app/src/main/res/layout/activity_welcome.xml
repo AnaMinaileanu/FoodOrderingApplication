@@ -7,27 +7,29 @@
     tools:context=".WelcomeActivity">
 
     <ImageView
-        android:foreground="@drawable/foreground_design"
         android:id="@+id/imageView2"
+        android:foreground="@drawable/foreground_design"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/bg2"
-        android:scaleType="centerCrop"></ImageView>
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="184dp"
-        android:fontFamily="@font/abril_fatface"
+        android:fontFamily="@font/alex_brush"
         android:text="@string/trattoria"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="33sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/imageView2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".4" />
 
     <TextView
         android:id="@+id/textView3"
@@ -39,20 +41,21 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/textView2"/>
+        app:layout_constraintTop_toBottomOf="@id/textView2"/>
 
     <Button
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintWidth_percent=".8"
-        android:text="Register"
         android:padding="14dp"
+        android:text="Register"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent=".8"
+        app:layout_constraintVertical_bias=".7"
         android:background="@drawable/btn_bg_desigm"
         android:textStyle="bold"
         />
@@ -68,6 +71,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button"
         android:textAlignment="center"
-        ></TextView>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
