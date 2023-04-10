@@ -73,6 +73,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button"
         android:textAlignment="center"
+        android:onClick="login"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

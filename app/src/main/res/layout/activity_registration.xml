@@ -76,6 +76,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText"
+        android:layout_marginTop="10dp"
         />
 
     <EditText
@@ -91,10 +92,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2"
+        android:layout_marginTop="10dp"
         />
 
     <Button
         android:id="@+id/button"
+        android:onClick="mainActivity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_bg_desigm"
@@ -107,7 +110,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editText3"
         app:layout_constraintWidth_percent=".8"
-        app:layout_constraintVertical_bias=".7"
+        app:layout_constraintVertical_bias=".6"
         />
 
     <TextView
@@ -132,6 +135,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/purple_200"
+        android:onClick="login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
