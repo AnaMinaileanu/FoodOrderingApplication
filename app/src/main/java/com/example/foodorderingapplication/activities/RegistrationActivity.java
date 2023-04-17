@@ -46,8 +46,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 {
                     if (preferences.getString(newEmail, null) == null)
                     {
-                        String regex = "/^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$/g";
-                        Pattern pattern = Pattern.compile(regex);
+                        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+                        Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
                         if(pattern.matcher(newEmail).matches())
                         {
                             editor.putString(newEmail,  newUser + " " + newEmail + " " + newPassword);
