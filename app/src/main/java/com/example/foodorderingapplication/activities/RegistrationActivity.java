@@ -1,4 +1,4 @@
-package com.example.foodorderingapplication;
+package com.example.foodorderingapplication.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,9 @@ import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import java.util.regex.Pattern;
+
+import com.example.foodorderingapplication.MainActivity;
+import com.example.foodorderingapplication.R;
 
 public class RegistrationActivity extends AppCompatActivity {
 

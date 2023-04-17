@@ -1,4 +1,4 @@
-package com.example.foodorderingapplication;
+package com.example.foodorderingapplication.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.content.SharedPreferences;
 import android.widget.Toast;
+
+import com.example.foodorderingapplication.MainActivity;
+import com.example.foodorderingapplication.R;
 
 public class LoginActivity extends AppCompatActivity {
 
