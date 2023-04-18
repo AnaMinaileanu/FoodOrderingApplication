@@ -13,8 +13,8 @@
         android:foreground="@drawable/foreground_design"
         android:scaleType="centerCrop"
         android:src="@drawable/bg4"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-93dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -82,6 +82,18 @@
         android:layout_marginTop="10dp"
         />
 
+    <ImageView
+        android:id="@+id/google_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/google_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintVertical_bias=".2"
+        />
+
     <Button
         android:id="@+id/loginButton"
 
@@ -95,9 +107,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintTop_toBottomOf="@id/google_btn"
         app:layout_constraintWidth_percent=".8"
-        app:layout_constraintVertical_bias=".6"
+        app:layout_constraintVertical_bias=".5"
         />
 
     <TextView
