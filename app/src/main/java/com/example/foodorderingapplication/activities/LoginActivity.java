@@ -67,13 +67,17 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onActivityResult(ActivityResult result) {
                         if(result.getResultCode() == Activity.RESULT_OK){
+                            SharedPreferences preferences = getSharedPreferences("MYPREFS", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = preferences.edit();
                             try {
                                 SignInCredential credential = oneTapClient.getSignInCredentialFromIntent(result.getData());
                                 String idToken = credential.getGoogleIdToken();
-                                String username = credential.getId();
+                                String username = credential.getDisplayName();
                                 String password = credential.getPassword();
                                 if (idToken !=  null) {
                                     String email = credential.getId();
+                                    editor.putString("display", username);
+                                    editor.commit();
                                     Toast.makeText(LoginActivity.this, "Email " +email, Toast.LENGTH_SHORT).show();
                                     Intent displayScreen = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(displayScreen);
@@ -123,6 +127,7 @@ public class LoginActivity extends AppCompatActivity {
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
                 SharedPreferences preferences = getSharedPreferences("MYPREFS", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
 
                 String data = preferences.getString(email, null);
                 String dataSplit[] = data.split(" ", 3);
@@ -140,6 +145,8 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     if(email.equals(savedEmail) && password.equals(savedPassword))
                     {
+                        editor.putString("display", savedUser);
+                        editor.commit();
                         Intent displayScreen = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(displayScreen);
                     }
