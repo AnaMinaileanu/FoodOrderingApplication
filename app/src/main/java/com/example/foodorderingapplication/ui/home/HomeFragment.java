@@ -1,9 +1,13 @@
 package com.example.foodorderingapplication.ui.home;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -32,6 +36,12 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         homeHorizontalRec = root.findViewById(R.id.home_hor_rec);
         homeVerticalRec = root.findViewById(R.id.home_ver_rec);
+
+        SharedPreferences preferences = getActivity().getSharedPreferences("MYPREFS", MODE_PRIVATE);
+        String display = preferences.getString("display", "");
+
+        TextView displayInfo = (TextView) root.findViewById(R.id.textViewName);
+        displayInfo.setText("Hello, " + display);
 
         homeHorModelList = new ArrayList<>();
         homeHorModelList.add(new HomeHorModel(R.drawable.pizza, "Pizza"));
