@@ -13,12 +13,20 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="95dp"
+        android:id="@+id/userImage"
+        android:layout_width="90dp"
         android:layout_height="90dp"
+        android:scaleType="centerCrop"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@drawable/man" />
+        app:srcCompat='@drawable/man'
+        />
+
+    <Button
+        android:id="@+id/changeImage"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Change Image" />
 
     <TextView
         android:layout_width="match_parent"
