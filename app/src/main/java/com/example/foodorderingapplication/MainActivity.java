@@ -2,6 +2,7 @@ package com.example.foodorderingapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,10 +10,14 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,12 +26,23 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.foodorderingapplication.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     ImageView IVPreviewImage;
+    StorageReference storageReference;
+//    FirebaseAuth auth;
+    FirebaseFirestore fstore;
+    String displayEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +71,21 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
         View header = navigationView.getHeaderView(0);
 
+        SharedPreferences preferences = getSharedPreferences("MYPREFS",MODE_PRIVATE);
+        displayEmail = preferences.getString("displayEmail", "");
+
         IVPreviewImage = header.findViewById(R.id.userImage);
-        Button BSelectImage = header.findViewById(R.id.changeImage);
+        //auth = FirebaseAuth.getInstance();
+        fstore = FirebaseFirestore.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference profileRef = storageReference.child("users/"+displayEmail+"/profile.jpg");
+
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(IVPreviewImage);
+            }
+        });
 
 //        if (ContextCompat.checkSelfPermission(this,
 //                Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -71,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         // handle the Choose Image button to trigger
         // the image chooser function
-        BSelectImage.setOnClickListener(new View.OnClickListener() {
+        IVPreviewImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 imageChooser();
@@ -125,12 +154,33 @@ public class MainActivity extends AppCompatActivity {
                 Uri selectedImageUri = data.getData();
                 if (null != selectedImageUri) {
                     // update the preview image in the layout
-                    IVPreviewImage.setImageURI(selectedImageUri);
-//                    //resize
-//                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(100, 100);
-//                    IVPreviewImage.setLayoutParams(layoutParams);
+                    //IVPreviewImage.setImageURI(selectedImageUri);
+                    
+                    uploadImageToFirebase(selectedImageUri);
                 }
             }
         }
+    }
+
+    private void uploadImageToFirebase(Uri imageUri) {
+        // upload image to firebase storage
+        StorageReference fileRef = storageReference.child("users/"+displayEmail+"/profile.jpg");
+        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Picasso.get().load(uri).into(IVPreviewImage);
+                    }
+                });
+                Toast.makeText(MainActivity.this, "Image Uploaded", Toast.LENGTH_LONG).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(MainActivity.this, "Failed", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

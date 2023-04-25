@@ -52,7 +52,9 @@ public class RegistrationActivity extends AppCompatActivity {
                         {
                             editor.putString(newEmail,  newUser + " " + newEmail + " " + newPassword);
                             editor.commit();
-                            editor.putString("display", newUser);
+                            editor.putString("displayUser", newUser);
+                            editor.commit();
+                            editor.putString("displayEmail", newEmail);
                             editor.commit();
                             Intent displayScreen = new Intent(RegistrationActivity.this, MainActivity.class);
                             startActivity(displayScreen);

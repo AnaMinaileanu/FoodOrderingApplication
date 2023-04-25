@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
         homeVerticalRec = root.findViewById(R.id.home_ver_rec);
 
         SharedPreferences preferences = getActivity().getSharedPreferences("MYPREFS", MODE_PRIVATE);
-        String display = preferences.getString("display", "");
+        String display = preferences.getString("displayUser", "");
 
         TextView displayInfo = (TextView) root.findViewById(R.id.textViewName);
         displayInfo.setText("Hello, " + display);
