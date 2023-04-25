@@ -76,7 +76,9 @@ public class LoginActivity extends AppCompatActivity {
                                 String password = credential.getPassword();
                                 if (idToken !=  null) {
                                     String email = credential.getId();
-                                    editor.putString("display", username);
+                                    editor.putString("displayUser", username);
+                                    editor.commit();
+                                    editor.putString("displayEmail", email);
                                     editor.commit();
                                     Toast.makeText(LoginActivity.this, "Email " +email, Toast.LENGTH_SHORT).show();
                                     Intent displayScreen = new Intent(LoginActivity.this, MainActivity.class);
@@ -145,7 +147,9 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     if(email.equals(savedEmail) && password.equals(savedPassword))
                     {
-                        editor.putString("display", savedUser);
+                        editor.putString("displayUser", savedUser);
+                        editor.commit();
+                        editor.putString("displayEmail", savedEmail);
                         editor.commit();
                         Intent displayScreen = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(displayScreen);
