@@ -83,12 +83,12 @@
                     android:layout_height="20dp"
                     android:src="@drawable/dollarsymbol"
                     app:tint="@color/purple_500"
-                    app:layout_constraintEnd_toStartOf="@id/textView"
-                    app:layout_constraintTop_toTopOf="@id/textView"
+                    app:layout_constraintEnd_toStartOf="@id/textView12"
+                    app:layout_constraintTop_toTopOf="@id/textView12"
                     ></ImageView>
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
