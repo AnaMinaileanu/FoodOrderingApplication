@@ -14,7 +14,8 @@
         android:scaleType="centerCrop"
         android:src="@drawable/bg4"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/textView4"
@@ -28,48 +29,47 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".2"
-        />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="@string/register"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="19sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        android:layout_marginTop="30dp"
-        android:textAlignment="center"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
         android:id="@+id/newName"
         android:layout_width="330dp"
         android:layout_height="48dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#CCCCCC"
-        android:drawableLeft="@drawable/baseline_account_circle_24"
+        android:drawableStart="@drawable/baseline_account_circle_24"
         android:drawablePadding="13dp"
         android:hint="@string/full_name"
-        android:textColorHint="@color/white"
         android:textColor="@color/white"
-        app:layout_constraintWidth_percent=".8"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        />
+        app:layout_constraintWidth_percent=".8" />
 
     <EditText
         android:id="@+id/newEmail"
         android:layout_width="330dp"
         android:layout_height="48dp"
         android:backgroundTint="#CCCCCC"
-        android:drawableLeft="@drawable/baseline_email_24"
+        android:drawableStart="@drawable/baseline_email_24"
         android:drawablePadding="13dp"
         android:hint="@string/email_address"
         android:textColorHint="@color/white"
@@ -78,15 +78,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newName"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="10dp"/>
 
     <EditText
         android:id="@+id/newPassword"
         android:layout_width="330dp"
         android:layout_height="48dp"
         android:backgroundTint="#CCCCCC"
-        android:drawableLeft="@drawable/baseline_key_24"
+        android:drawableStart="@drawable/baseline_key_24"
         android:drawablePadding="13dp"
         android:hint="@string/password"
         android:textColorHint="@color/white"
@@ -101,20 +100,20 @@
     <Button
         android:id="@+id/newRegisterButton"
 
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="478dp"
+        android:layout_height="60dp"
         android:background="@drawable/btn_bg_desigm"
         android:padding="14dp"
         android:text="Register"
         android:textAllCaps="false"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/newPassword"
-        app:layout_constraintWidth_percent=".8"
-        app:layout_constraintVertical_bias=".6"
-        />
+        app:layout_constraintVertical_bias="0.125"
+        app:layout_constraintWidth_percent=".8" />
 
     <TextView
         android:id="@+id/textView6"
@@ -126,9 +125,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/newRegisterButton"
-        />
+        app:layout_constraintVertical_bias="0.347" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -142,9 +142,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@id/newRegisterButton" />
+        app:layout_constraintTop_toBottomOf="@id/newRegisterButton"
+        app:layout_constraintVertical_bias="0.941" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
