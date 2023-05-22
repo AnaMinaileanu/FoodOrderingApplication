@@ -20,7 +20,7 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/alex_brush"
+        android:fontFamily="@font/abril_fatface"
         android:text="@string/trattoria"
         android:textAlignment="center"
         android:textColor="@color/white"
